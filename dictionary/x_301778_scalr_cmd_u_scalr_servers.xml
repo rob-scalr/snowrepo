@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="u_scalr_servers" max_length="40" name="x_301778_scalr_cmd_u_scalr_servers" type="collection">
+        <element label="Account ID" max_length="40" name="account_id" type="string"/>
+        <element label="Cloud location" max_length="40" name="cloud_location" type="string"/>
+        <element label="Cloud platform" max_length="40" name="cloud_platform" type="string"/>
+        <element label="Environment ID" max_length="40" name="environment_id" type="string"/>
+        <element label="farm" max_length="40" name="farm" type="string"/>
+        <element label="Farm role alias" max_length="40" name="farm_role_alias" type="string"/>
+        <element label="Farm role ID" max_length="40" name="farm_role_id" type="string"/>
+        <element label="hostname" max_length="40" name="hostname" type="string"/>
+        <element label="Instance type" max_length="40" name="instance_type" type="string"/>
+        <element label="Public IP" max_length="40" name="public_ip" type="string"/>
+        <element label="status" max_length="40" name="status" type="string"/>
+        <element label="ID" max_length="40" name="u_id" type="string"/>
+    </element>
+</database>

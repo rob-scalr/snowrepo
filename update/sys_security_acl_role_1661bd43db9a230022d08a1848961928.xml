@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-12-15 06:54:42</sys_created_on>
+        <sys_id>1661bd43db9a230022d08a1848961928</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_301778_scalr_cmd_u_scalr_servers.x_301778_scalr_cmd.u_scalr_servers_user</sys_name>
+        <sys_package display_value="Scalr CMDB Webhook" source="x_301778_scalr_cmd">907acfb2db16230022d08a1848961906</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Scalr CMDB Webhook">907acfb2db16230022d08a1848961906</sys_scope>
+        <sys_security_acl display_value="x_301778_scalr_cmd_u_scalr_servers">da61bd43db9a230022d08a1848961925</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_1661bd43db9a230022d08a1848961928</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-12-15 06:54:42</sys_updated_on>
+        <sys_user_role display_value="x_301778_scalr_cmd.u_scalr_servers_user" name="x_301778_scalr_cmd.u_scalr_servers_user">3d61b9cfdb5a230022d08a184896194a</sys_user_role>
+        <transaction_id/>
+    </sys_security_acl_role>
+</record_update>
