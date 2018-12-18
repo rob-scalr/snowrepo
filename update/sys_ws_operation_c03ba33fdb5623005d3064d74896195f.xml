@@ -8,12 +8,9 @@
         <http_method>POST</http_method>
         <name>approval</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
-	
-	gs.info('running1.....');
 	var authkey = 'rqLknCNddS4MX4inpkAbIahhbMdoS9mT4fL0IbC29unVNjCSzJjBlLytw4VPkPj+';
 	var scalr_sig = request.getHeader('X-Signature');
 	var scalr_date = request.getHeader('Date');
-	gs.info('running2.....');	
 	var scalr_gdate = new GlideDate();
 	scalr_gdate.setValue(convertDateToGDT(scalr_date));
 	var scalr_gtime = new GlideTime();
@@ -27,12 +24,12 @@
 	if (scalr_min.length < 2) {
 		scalr_min = '0' + scalr_min;
 	}
-	gs.info('running3.....');	
+	
 	var gdt = new GlideDateTime();	
 	var scalr_gdt = new GlideDateTime(scalr_gdate.getByFormat('yyyy-MM-dd') + " " + scalr_hour + ':' + scalr_min + ':' + scalr_gtime.getSeconds()); 
 	var diff = new GlideDuration();
 	diff = GlideDateTime.subtract(scalr_gdt, gdt);
-	gs.info('running4.....');	
+
 	if(diff.getNumericValue()/1000 > 300){
 		return 403;
 	}
@@ -43,7 +40,13 @@
 	gs.info("Payload + Date:" + data);
 	
 	var signature = new CryptoJS.HmacSHA1(data, authkey);
-
+	
+	var mac = new CertificateEncryption();
+    var siglcc = mac.generateMac(authkey, "HmacSHA256", data);
+	gs.info('lccc.......');
+	gs.info(siglcc);
+	gs.info('lccc.......');
+		
 	gs.info("SNOW Sig: " + signature + "    Scalr sig:" + scalr_sig);
 	if(scalr_sig != signature) {
 		gs.info("Signature Mismatch");
@@ -126,14 +129,14 @@ function convertDateToGDT(scalr_date) {
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-12-17 23:42:23</sys_created_on>
         <sys_id>c03ba33fdb5623005d3064d74896195f</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>27</sys_mod_count>
         <sys_name>approval</sys_name>
         <sys_package display_value="Scalr CMDB Webhook" source="x_301778_scalr_cmd">907acfb2db16230022d08a1848961906</sys_package>
         <sys_policy/>
         <sys_scope display_value="Scalr CMDB Webhook">907acfb2db16230022d08a1848961906</sys_scope>
         <sys_update_name>sys_ws_operation_c03ba33fdb5623005d3064d74896195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-12-18 15:52:27</sys_updated_on>
+        <sys_updated_on>2018-12-18 19:41:54</sys_updated_on>
         <web_service_definition display_value="approval">fb1b633fdb5623005d3064d748961967</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
