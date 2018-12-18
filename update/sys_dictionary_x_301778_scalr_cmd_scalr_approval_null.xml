@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="cloud_location" table="x_301778_scalr_cmd_u_scalr_servers">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="" table="x_301778_scalr_cmd_scalr_approval">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
@@ -14,7 +14,7 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Cloud location</column_label>
+        <column_label/>
         <comments/>
         <create_roles/>
         <default_value/>
@@ -27,15 +27,15 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>cloud_location</element>
+        <element/>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="String">string</internal_type>
+        <internal_type display_value="Collection">collection</internal_type>
         <mandatory>false</mandatory>
         <max_length>40</max_length>
-        <name>x_301778_scalr_cmd_u_scalr_servers</name>
+        <name>x_301778_scalr_cmd_scalr_approval</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
@@ -52,16 +52,16 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-12-15 06:54:41</sys_created_on>
-        <sys_id>54c3ab37db5623005d3064d74896190e</sys_id>
+        <sys_created_on>2018-12-17 23:41:14</sys_created_on>
+        <sys_id>c6faaffbdb5623005d3064d7489619cf</sys_id>
         <sys_mod_count>0</sys_mod_count>
-        <sys_name>Cloud location</sys_name>
+        <sys_name>x_301778_scalr_cmd_scalr_approval</sys_name>
         <sys_package display_value="Scalr CMDB Webhook" source="x_301778_scalr_cmd">907acfb2db16230022d08a1848961906</sys_package>
         <sys_policy/>
         <sys_scope display_value="Scalr CMDB Webhook">907acfb2db16230022d08a1848961906</sys_scope>
-        <sys_update_name>sys_dictionary_x_301778_scalr_cmd_u_scalr_servers_cloud_location</sys_update_name>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-12-17 23:09:44</sys_updated_on>
+        <sys_update_name>sys_dictionary_x_301778_scalr_cmd_scalr_approval_null</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-12-17 23:41:14</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

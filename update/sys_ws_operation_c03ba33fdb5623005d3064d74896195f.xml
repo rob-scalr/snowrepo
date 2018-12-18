@@ -6,11 +6,11 @@
         <default_operation_uri/>
         <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
         <http_method>POST</http_method>
-        <name>InventoryDataIn</name>
+        <name>approval</name>
         <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
 	
 	gs.info('running1.....');
-	var authkey = 'B5w0GcrHeXJasiOyBYg3rqI9k03Yz9TO4GRjlYIVIMes8w+oQitqytK4lbaFnuHf';
+	var authkey = 'rqLknCNddS4MX4inpkAbIahhbMdoS9mT4fL0IbC29unVNjCSzJjBlLytw4VPkPj+';
 	var scalr_sig = request.getHeader('X-Signature');
 	var scalr_date = request.getHeader('Date');
 	gs.info('running2.....');	
@@ -50,39 +50,23 @@
 		return 403;
 	}
  	update(info);
+	
+// 	set Scalr approval 202 and message
+	response.setContentType('application/json');
+	response.setStatus(202);
+	var writer = response.getStreamWriter();
+	writer.writeString("{\"approval_status\": \"pending\", \"message\": \"pending\"}");
 })(request, response);
 
 function update(info) {
 	var parsed = new global.JSON().decode(info);
-	var gr = new GlideRecord('x_301778_scalr_cmd_u_scalr_servers');
-	
+	var gr = new GlideRecord('x_301778_scalr_cmd_scalr_approval');
 	gr.initialize();
-	if (parsed.eventName != "HostUp") {
-		gr.get('u_id', parsed.data.SCALR_SERVER_ID);
-	}
-	else {
-		gr.u_id = parsed.data.SCALR_SERVER_ID;
-	}
-	gr.status = parsed.eventName;
-	gr.environment_id = parsed.data.SCALR_ENV_ID;
-	gr.account_id = parsed.data.SCALR_ACCOUNT_ID;
-	gr.cloud_platform = parsed.data.SCALR_CLOUD_PLATFORM;
-	gr.cloud_location = parsed.data.SCALR_CLOUD_LOCATION;
-	gr.farm_role_alias = parsed.data.SCALR_FARM_ROLE_ALIAS;
-	gr.farm_role_id = parsed.data.SCALR_FARM_ROLE_ID;
-	gr.hostname = parsed.data.SCALR_SERVER_HOSTNAME;
-	gr.public_ip = parsed.data.SCALR_EXTERNAL_IP;
-	gr.private_ip = parsed.data.SCALR_INTERNAL_IP;
-	gr.instance_type = parsed.data.SCALR_SERVER_TYPE;
-	gr.farm = parsed.data.SCALR_FARM_NAME;
-	if (parsed.eventName == "HostUp"){
-		gs.info("Inserting: " + parsed.data.SCALR_SERVER_ID);
-		gr.insert();
-	}
-	else {
-		gs.info("Updating: " + parsed.data.SCALR_SERVER_ID);
-		gr.update();
-	}
+	gr.farm_name = parsed.data.SCALR_FARM_NAME;
+	gr.requestid = parsed.requestId;
+	gr.state = "pending";
+	gs.info("Inserting...: " + parsed.data.SCALR_SERVER_ID);
+	gr.insert();
 }
 
 function convertDateToGDT(scalr_date) {
@@ -129,7 +113,7 @@ function convertDateToGDT(scalr_date) {
 	}
 	return scalr_fmt_date;
 }]]></operation_script>
-        <operation_uri>/api/x_301778_scalr_cmd/scalr_cmdbwebhook</operation_uri>
+        <operation_uri>/api/x_301778_scalr_cmd/approval</operation_uri>
         <produces>application/json,application/xml,text/xml</produces>
         <produces_customized>false</produces_customized>
         <relative_path>/</relative_path>
@@ -140,17 +124,17 @@ function convertDateToGDT(scalr_date) {
         <short_description/>
         <sys_class_name>sys_ws_operation</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-12-14 18:59:05</sys_created_on>
-        <sys_id>a7cac7f2db16230022d08a184896190b</sys_id>
-        <sys_mod_count>207</sys_mod_count>
-        <sys_name>InventoryDataIn</sys_name>
+        <sys_created_on>2018-12-17 23:42:23</sys_created_on>
+        <sys_id>c03ba33fdb5623005d3064d74896195f</sys_id>
+        <sys_mod_count>25</sys_mod_count>
+        <sys_name>approval</sys_name>
         <sys_package display_value="Scalr CMDB Webhook" source="x_301778_scalr_cmd">907acfb2db16230022d08a1848961906</sys_package>
         <sys_policy/>
         <sys_scope display_value="Scalr CMDB Webhook">907acfb2db16230022d08a1848961906</sys_scope>
-        <sys_update_name>sys_ws_operation_a7cac7f2db16230022d08a184896190b</sys_update_name>
+        <sys_update_name>sys_ws_operation_c03ba33fdb5623005d3064d74896195f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-12-17 23:20:05</sys_updated_on>
-        <web_service_definition display_value="Scalr_CMDBWebhook">f7aa47f2db16230022d08a1848961931</web_service_definition>
+        <sys_updated_on>2018-12-18 15:52:27</sys_updated_on>
+        <web_service_definition display_value="approval">fb1b633fdb5623005d3064d748961967</web_service_definition>
         <web_service_version/>
     </sys_ws_operation>
 </record_update>

@@ -53,15 +53,15 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-12-15 06:54:41</sys_created_on>
-        <sys_id>1641f5cfdb5a230022d08a18489619bd</sys_id>
+        <sys_id>acc3ab37db5623005d3064d748961917</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>status</sys_name>
         <sys_package display_value="Scalr CMDB Webhook" source="x_301778_scalr_cmd">907acfb2db16230022d08a1848961906</sys_package>
         <sys_policy/>
         <sys_scope display_value="Scalr CMDB Webhook">907acfb2db16230022d08a1848961906</sys_scope>
         <sys_update_name>sys_dictionary_x_301778_scalr_cmd_u_scalr_servers_status</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-12-15 06:54:41</sys_updated_on>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2018-12-17 23:09:45</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

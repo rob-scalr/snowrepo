@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="scalr_approval" max_length="40" name="x_301778_scalr_cmd_scalr_approval" type="collection">
+        <element label="Farm name" max_length="40" name="farm_name" type="string"/>
+        <element label="Requestid" max_length="40" name="requestid" type="string"/>
+        <element label="State" max_length="40" name="state" type="string"/>
+    </element>
+</database>
